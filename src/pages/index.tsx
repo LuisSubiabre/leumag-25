@@ -9,11 +9,19 @@ import { GithubIcon } from "@/components/icons";
 import DefaultLayout from "@/layouts/default";
 import { Divider } from "@heroui/react";
 import Noticias from "@/components/noticias";
+import experimentalin from "@/assets/img/experimentalin.png";
 
 export default function IndexPage() {
   return (
     <DefaultLayout>
       <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
+        <div className="animate-bounce-slow">
+          <img
+            src={experimentalin}
+            alt="Experimentalin LEUMAG"
+            className="w-[200px] h-[200px] mb-6"
+          />
+        </div>
         <div className="inline-block max-w-lg text-center justify-center">
           <span className={title()}>Liceo&nbsp;</span>
           <span className={title({ color: "blue" })}>Experimental&nbsp;</span>
@@ -35,7 +43,40 @@ export default function IndexPage() {
             })}
             href={siteConfig.links.docs}
           >
-            Documentation
+            Documentos Oficiales
+          </Link>
+          <Link
+            isExternal
+            className={buttonStyles({
+              color: "primary",
+              radius: "full",
+              variant: "shadow",
+            })}
+            href={siteConfig.links.docs}
+          >
+            Reuniones
+          </Link>
+          <Link
+            isExternal
+            className={buttonStyles({
+              color: "primary",
+              radius: "full",
+              variant: "shadow",
+            })}
+            href={siteConfig.links.docs}
+          >
+            Lista de Materiales
+          </Link>
+          <Link
+            isExternal
+            className={buttonStyles({
+              color: "primary",
+              radius: "full",
+              variant: "shadow",
+            })}
+            href={siteConfig.links.docs}
+          >
+            Horarios
           </Link>
           <Link
             isExternal
