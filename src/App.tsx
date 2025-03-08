@@ -1,0 +1,21 @@
+import { Route, Routes } from "react-router-dom";
+
+import IndexPage from "@/pages/index";
+import ComunicadosPage from "@/pages/comunicados";
+import ContactoPage from "@/pages/contacto";
+import EstamentosPage from "@/pages/estamentos";
+import NosotrosPage from "@/pages/nosotros";
+
+function App() {
+  return (
+    <Routes>
+      <Route element={<IndexPage />} path="/" />
+      <Route element={<NosotrosPage />} path="/nosotros" />
+      <Route element={<EstamentosPage />} path="/estamentos" />
+      <Route element={<ComunicadosPage />} path="/comunicados" />
+      <Route element={<ContactoPage />} path="/contacto" />
+    </Routes>
+  );
+}
+
+export default App;
