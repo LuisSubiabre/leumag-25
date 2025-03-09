@@ -15,6 +15,7 @@ import {
   ShareIcon,
 } from "@heroicons/react/24/outline";
 import { title } from "@/components/primitives";
+import hero from "@/assets/img/hero.png";
 
 interface Noticia {
   title: string;
@@ -102,7 +103,20 @@ const NoticiaDetalle = () => {
 
   return (
     <DefaultLayout>
-      <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
+      <section
+        className="absolute top-16 left-0 w-full min-h-[600px] flex flex-col items-center justify-center gap-4 py-8 md:py-10"
+        style={{
+          backgroundImage: `url(${noticia.image})`,
+          backgroundSize: "cover",
+          backgroundPosition: "top",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        <div className="absolute inset-0 bg-black/50" />{" "}
+        {/* Overlay oscuro para mejorar legibilidad */}
+      </section>
+
+      <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-2 mt-[360px]">
         {/* Título de la sección */}
         <div className="inline-block max-w-lg text-center justify-center">
           <h1 className={title()}>Noticias</h1>
@@ -111,22 +125,6 @@ const NoticiaDetalle = () => {
         <div className="relative w-full max-w-5xl mx-auto px-4">
           {/* Tarjeta principal */}
           <Card className="w-full overflow-hidden bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-white/20">
-            {/* Imagen de la noticia */}
-            <div className="relative h-[400px] w-full overflow-hidden">
-              <Image
-                alt={noticia.title}
-                className="w-full h-full object-cover"
-                src={noticia.image}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-6">
-                <div className="flex items-center gap-2 text-blue-200 mb-2">
-                  <CalendarIcon className="w-5 h-5" />
-                  <span className="text-sm font-medium">{noticia.fecha}</span>
-                </div>
-              </div>
-            </div>
-
             {/* Contenido */}
             <div className="p-6">
               {/* Título de la noticia */}
@@ -156,12 +154,15 @@ const NoticiaDetalle = () => {
               </div>
 
               <Divider className="my-6" />
-
+              <div className="flex items-center justify-center gap-2 text-gray-500 dark:text-gray-400">
+                <Image alt={noticia.title} src={noticia.image} width={480} />
+              </div>
               {/* Contenido de la noticia */}
               <div className="prose prose-lg max-w-none dark:prose-invert">
-                <p className="text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
-                  {noticia.content}
-                </p>
+                <div
+                  className="text-gray-700 dark:text-gray-300 leading-relaxed"
+                  dangerouslySetInnerHTML={{ __html: noticia.content }}
+                />
               </div>
 
               {/* Pie de página */}

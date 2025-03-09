@@ -7,7 +7,9 @@ import {
   Divider,
 } from "@heroui/react";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { HeartFilledIcon } from "./icons";
+import { ArrowRightIcon } from "@heroicons/react/24/outline";
 
 const Noticias = () => {
   const navigate = useNavigate();
@@ -88,7 +90,7 @@ const Noticias = () => {
                   radius="full"
                   size="sm"
                   className="bg-gradient-to-r from-purple-500 to-blue-500 text-white shadow-lg hover:shadow-purple-500/50 hover:from-purple-600 hover:to-blue-600 transition-all duration-300"
-                  onClick={() => navigate(`/noticia/${noticia.slug}`)}
+                  onPress={() => navigate(`/noticia/${noticia.slug}`)}
                 >
                   Leer Noticia
                 </Button>
@@ -103,31 +105,46 @@ const Noticias = () => {
       {/* Sección de noticias secundarias */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {noticiasMore.map((noticia, index) => (
-          <div
-            key={index}
-            className="transform transition-all duration-300 hover:scale-[1.02] hover:-translate-y-1"
-          >
-            <Card
-              className="h-[280px] overflow-hidden group relative cursor-pointer"
-              onClick={() => navigate(`/noticia/${noticia.slug}`)}
+          <Link to={`/noticia/${noticia.slug}`}>
+            <div
+              key={index}
+              className="transform transition-all duration-300 hover:scale-[1.02] hover:-translate-y-1"
             >
-              <CardHeader className="absolute z-20 top-0 flex-col !items-start p-5 w-full bg-gradient-to-b from-black/90 via-black/60 to-transparent h-[140px]">
-                <p className="text-xs text-white/90 uppercase font-bold tracking-wider mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  {noticia.fecha}
-                </p>
-                <h4 className="text-white font-bold text-lg leading-tight group-hover:text-purple-200 transition-colors duration-300">
-                  {noticia.title}
-                </h4>
-              </CardHeader>
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/30 to-blue-500/30 z-10 group-hover:opacity-75 transition-opacity duration-300" />
-              <Image
-                alt={noticia.title}
-                className="z-0 w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110"
-                src={noticia.image}
-              />
-            </Card>
-          </div>
+              <Card
+                className="h-[280px] overflow-hidden group relative cursor-pointer"
+                onPress={() => navigate(`/noticia/${noticia.slug}`)}
+              >
+                <CardHeader className="absolute z-20 top-0 flex-col !items-start p-5 w-full bg-gradient-to-b from-black/90 via-black/60 to-transparent h-[140px]">
+                  <p className="text-xs text-white/90 uppercase font-bold tracking-wider mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    {noticia.fecha}
+                  </p>
+                  <h4 className="text-white font-bold text-lg leading-tight group-hover:text-purple-200 transition-colors duration-300">
+                    {noticia.title}
+                  </h4>
+                </CardHeader>
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/30 to-blue-500/30 z-10 group-hover:opacity-75 transition-opacity duration-300" />
+                <Image
+                  isBlurred
+                  height={280}
+                  width={280}
+                  alt={noticia.title}
+                  className="z-0 w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110"
+                  src={noticia.image}
+                />
+              </Card>
+            </div>
+          </Link>
         ))}
+      </div>
+      <div className="flex justify-end">
+        <Button
+          color="primary"
+          variant="ghost"
+          onPress={() => navigate("/noticias")}
+          startContent={<ArrowRightIcon className="w-4 h-4" />}
+        >
+          Ver más Noticias
+        </Button>
       </div>
     </div>
   );

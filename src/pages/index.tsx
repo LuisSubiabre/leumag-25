@@ -5,12 +5,13 @@ import { button as buttonStyles } from "@heroui/theme";
 
 import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
-import { GithubIcon } from "@/components/icons";
+
 import DefaultLayout from "@/layouts/default";
-import { Divider } from "@heroui/react";
+import { Button, Divider, NavbarItem } from "@heroui/react";
 import Noticias from "@/components/noticias";
 import experimentalin from "@/assets/img/experimentalin.png";
 import hero from "@/assets/img/hero.png";
+import IndexCard from "@/components/index-card";
 
 export default function IndexPage() {
   return (
@@ -46,78 +47,44 @@ export default function IndexPage() {
             </div>
           </div>
         </div>
+        {/* <div className="flex gap-3 justify-center mb-6">
+            <Link
+              className={buttonStyles({
+                color: "primary",
+                radius: "full",
+                variant: "shadow",
+              })}
+              href="/centro-padres"
+            >
+              Centro de Padres
+            </Link>
+            <Link
+              className={buttonStyles({
+                color: "primary",
+                radius: "full",
+                variant: "shadow",
+              })}
+              href="/centro-alumnos"
+            >
+              Centro de Alumnos
+            </Link>
+          </div> */}
       </section>
 
       <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-2 mt-[560px]">
         <div className="mt-2">
-          {/* 
-          <div className="flex gap-3 justify-center mt-6">
-            <Link
-              isExternal
-              className={buttonStyles({
-                color: "primary",
-                radius: "full",
-                variant: "shadow",
-              })}
-              href={siteConfig.links.docs}
-            >
-              Documentos Oficiales
-            </Link>
-            <Link
-              isExternal
-              className={buttonStyles({
-                color: "primary",
-                radius: "full",
-                variant: "shadow",
-              })}
-              href={siteConfig.links.docs}
-            >
-              Reuniones
-            </Link>
-            <Link
-              isExternal
-              className={buttonStyles({
-                color: "primary",
-                radius: "full",
-                variant: "shadow",
-              })}
-              href={siteConfig.links.docs}
-            >
-              Lista de Materiales
-            </Link>
-            <Link
-              isExternal
-              className={buttonStyles({
-                color: "primary",
-                radius: "full",
-                variant: "shadow",
-              })}
-              href={siteConfig.links.docs}
-            >
-              Horarios
-            </Link>
-            <Link
-              isExternal
-              className={buttonStyles({
-                variant: "bordered",
-                radius: "full",
-                className: "text-white border-white hover:bg-white/20",
-              })}
-              href={siteConfig.links.github}
-            >
-              <GithubIcon size={20} />
-              GitHub
-            </Link>
-          </div> */}
-          <Snippet hideCopyButton hideSymbol variant="bordered">
+          <IndexCard />
+
+          {/* <Snippet hideCopyButton hideSymbol variant="bordered">
             <span>
               Get started by editing{" "}
               <Code color="primary">pages/index.tsx</Code>
             </span>
-          </Snippet>
+          </Snippet> */}
         </div>
 
         <Divider className="w-full max-w-lg" />
+
         <Noticias />
       </section>
     </DefaultLayout>
