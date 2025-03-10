@@ -12,7 +12,6 @@ import {
 
 import { title } from "@/components/primitives";
 import DefaultLayout from "@/layouts/default";
-import hero from "@/assets/img/hero.png";
 
 export default function DocsPage() {
   return (

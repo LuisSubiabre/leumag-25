@@ -1,13 +1,7 @@
-import { Link } from "@heroui/link";
-import { Snippet } from "@heroui/snippet";
-import { Code } from "@heroui/code";
-import { button as buttonStyles } from "@heroui/theme";
-
-import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
 
 import DefaultLayout from "@/layouts/default";
-import { Button, Divider, NavbarItem } from "@heroui/react";
+import { Divider } from "@heroui/react";
 import Noticias from "@/components/noticias";
 import experimentalin from "@/assets/img/experimentalin.png";
 import hero from "@/assets/img/hero.png";

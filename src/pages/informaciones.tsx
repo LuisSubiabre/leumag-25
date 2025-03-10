@@ -1,4 +1,3 @@
-import { title } from "@/components/primitives";
 import DefaultLayout from "@/layouts/default";
 import banner from "@/assets/img/footbanner.jpg";
 import docRIE from "../assets/docs/RIE.pdf";

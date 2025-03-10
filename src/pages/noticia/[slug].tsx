@@ -1,21 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import {
-  Card,
-  CardHeader,
-  Image,
-  Button,
-  Spinner,
-  Divider,
-} from "@heroui/react";
+import { Card, Image, Button, Spinner, Divider } from "@heroui/react";
 import DefaultLayout from "@/layouts/default";
-import {
-  CalendarIcon,
-  ArrowLeftIcon,
-  ShareIcon,
-} from "@heroicons/react/24/outline";
+import { ArrowLeftIcon, ShareIcon } from "@heroicons/react/24/outline";
 import { title } from "@/components/primitives";
-import hero from "@/assets/img/hero.png";
 
 interface Noticia {
   title: string;
